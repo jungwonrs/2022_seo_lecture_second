@@ -107,6 +107,9 @@ besu
 
 
 node4 command
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=enode://ab47c6436d2ae2b0af775c03e0a6448e9944ceaea67bad3612bf2b9f5fc7eac30b43bc41f9d6865746dcd28c7afc478b64e37de78b8c9f9a959d81dc9913fb0d@127.0.0.1:30303 --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT--host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548
+
+
 besu 
 --data-path=data 
 --genesis-file=../genesis.json 
