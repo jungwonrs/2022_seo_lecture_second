@@ -1,0 +1,125 @@
+account 1
+지갑 주소: 0x88B086941Ab5c6a46C58845b25b6490c6D7fBE88
+test_account
+지갑 주소: 0x19E74656Cd7CB8D262AbFA017a28D0f1e7Cc4f3F
+account3
+지갑주소: 0x78503D9A1A9a294b56d04D44D9079d15e22c29FB
+
+===========================================
+
+
+geth --datadir /c/Users/jungw/OneDrive/Desktop/ethereum_pri account new
+
+4번 반복
+
+=================================================
+
+geth --datadir /c/Users/jungw/OneDrive/Desktop/ethereum_pri/keystore account list
+
+
+node1 address: 
+fc623aa22bb861c1a298e833a7f067b3c21ae981
+38622c9c0572d9e3ade2df8c86731e2c6f5f091423f46e2642c1d089f5962d27
+
+node2 address:
+48ffcae7dd9e0df2596d2056b99738d41597e674
+846565fa2f82f4b12fd6ab64bfb0b14b4c307c0b4780d15dcb076c01695ded48
+
+node3 address:
+6dbb054a185d033094dbcbdbea8344604d33f7b7
+163ee292de76109e78e47634e8b5f64a549f6941753814482dde14d7ba85ad32
+
+node4 address: 
+76bc871d97829f49912befeb9128429561b2c375
+ca3cc68b97a139402646e3c87ee0c91e87973b2e6b0b0c2d45cbce5e49fb0427
+
+======================================================
+
+geth --datadir /c/Users/jungw/OneDrive/Desktop/ethereum_pri/node1 init genesis.json
+geth --datadir /c/Users/jungw/OneDrive/Desktop/ethereum_pri/node2 init genesis.json
+geth --datadir /c/Users/jungw/OneDrive/Desktop/ethereum_pri/node3 init genesis.json
+geth --datadir /c/Users/jungw/OneDrive/Desktop/ethereum_pri/node4 init genesis.json
+
+========================================================
+
+node1 command
+geth --networkid 830 --datadir /c/Users/jungw/OneDrive/Desktop/ethereum_pri/node1 --ipcdisable --http --http.addr 0.0.0.0 --http.port 8545 --ws.port 8546 --http.api admin,eth,debug,miner,net,txpool,personal,web3, --ws.api admin,db,eth,debug,miner,net,shh,txpool,personal,web3, --mine --port 30304 --nat=extip:127.0.0.1 --http.corsdomain "*" --http.vhosts "*" --allow-insecure-unlock --authrpc.port 8552 --syncmode full console
+
+geth 
+--networkid 830 
+--datadir /c/Users/jungw/OneDrive/Desktop/ethereum_pri/node1 (주의)
+--ipcdisable 
+--http 
+--http.addr 0.0.0.0 
+--http.port 8545 (주의)
+--ws.port 8546 (주의)
+--http.api admin,eth,debug,miner,net,txpool,personal,web3, 
+--ws.api admin,db,eth,debug,miner,net,shh,txpool,personal,web3, 
+--mine 
+--port 30304 (주의)
+--nat=extip:127.0.0.1 
+--http.corsdomain "*" 
+--http.vhosts "*" 
+--allow-insecure-unlock 
+--authrpc.port 8552 (주의) 
+--syncmode full 
+console
+
+node2 command
+geth --networkid 830 --datadir /c/Users/jungw/OneDrive/Desktop/ethereum_pri/node2 --ipcdisable --http --http.addr 0.0.0.0 --http.port 8555 --ws.port 8556 --http.api admin,eth,debug,miner,net,txpool,personal,web3, --ws.api admin,db,eth,debug,miner,net,shh,txpool,personal,web3, --mine --port 30314 --nat=extip:127.0.0.1 --http.corsdomain "*" --http.vhosts "*" --allow-insecure-unlock --authrpc.port 8562 --syncmode full console
+
+node3 command
+geth --networkid 830 --datadir /c/Users/jungw/OneDrive/Desktop/ethereum_pri/node3 --ipcdisable --http --http.addr 0.0.0.0 --http.port 8565 --ws.port 8566 --http.api admin,eth,debug,miner,net,txpool,personal,web3, --ws.api admin,db,eth,debug,miner,net,shh,txpool,personal,web3, --mine --port 30324 --nat=extip:127.0.0.1 --http.corsdomain "*" --http.vhosts "*" --allow-insecure-unlock --authrpc.port 8572 --syncmode full console
+
+node4 command
+geth --networkid 830 --datadir /c/Users/jungw/OneDrive/Desktop/ethereum_pri/node4 --ipcdisable --http --http.addr 0.0.0.0 --http.port 8575 --ws.port 8576 --http.api admin,eth,debug,miner,net,txpool,personal,web3, --ws.api admin,db,eth,debug,miner,net,shh,txpool,personal,web3, --mine --port 30334 --nat=extip:127.0.0.1 --http.corsdomain "*" --http.vhosts "*" --allow-insecure-unlock --authrpc.port 8582 --syncmode full console
+
+
+명령어 admin
+node1 enode
+"enode://4d34ec0182fe851838438d81053d821f8f8c6c40683cf0ed4736710cc827580cf372775af510629a03e3cef96a98889ba3bc88d2f1dc9df301b9f31b65ea72f3@127.0.0.1:30304"
+
+node2 enode
+"enode://8b22a59c28400565d7211df5fe170deb702084b396e0a9814595032eba2ee5a5d51a7ca9837729ca3ab6e2902243ae2d40e2ad540aec6700db439d6c7f788d40@127.0.0.1:30314"
+
+node3 enode
+"enode://8a0b059ed793dadc8b9777a1a6773b24de201d86198bd1dfa51bf791bef09912f6f9186f02e663940fdb3a3cb1fb498736a4764831b7295ceb3b7a0151dcecf9@127.0.0.1:30324"
+
+node4 enode
+"enode://b6f15f8338c934479ceae85f99ad4e5e8374337f0ea4720b7af3a7232fb38a5564101bf930102e3dfa0832c1b52e66d279989b04b2af597d902031fb7e4bf00d@127.0.0.1:30334"
+
+
+net.peerCount
+miner.start()
+miner.stop()
+
+
+node 2번, 3번, 4번 터미널로 이동
+admin.addPeer(node1 enode)
+
+node 3번, 4번, 터미널로 이동
+admin.addPeer(node2 enode)
+
+node 4번 터미널로 이동
+admin.addPeer(node3 enode)
+
+
+node 2, 3, 4 => node1에 대한 정보 입력
+admin.addPeer("enode://4d34ec0182fe851838438d81053d821f8f8c6c40683cf0ed4736710cc827580cf372775af510629a03e3cef96a98889ba3bc88d2f1dc9df301b9f31b65ea72f3@127.0.0.1:30304")
+
+node 3, 4 => node2에 대한 정보 입력
+admin.addPeer("enode://8b22a59c28400565d7211df5fe170deb702084b396e0a9814595032eba2ee5a5d51a7ca9837729ca3ab6e2902243ae2d40e2ad540aec6700db439d6c7f788d40@127.0.0.1:30314")
+
+node 3 => node4에 대한 정보 입력
+admin.addPeer("enode://b6f15f8338c934479ceae85f99ad4e5e8374337f0ea4720b7af3a7232fb38a5564101bf930102e3dfa0832c1b52e66d279989b04b2af597d902031fb7e4bf00d@127.0.0.1:30334")
+
+
+
+miner.setEtherbase(eth.accounts[0])
+eth.accounts
+
+personal.unlockAccount("0xfc623aa22bb861c1a298e833a7f067b3c21ae981")
+
+geth --datadir /c/Users/jungw/OneDrive/Desktop/ethereum --ipcdisable --http --http.addr 0.0.0.0 --http.port 8545 --ws.port 8546 --http.api admin,eth,debug,miner,net,txpool,personal,web3, --ws.api admin,db,eth,debug,miner,net,shh,txpool,personal,web3, --port 30304 --nat=extip:127.0.0.1 --http.corsdomain "*" --http.vhosts "*" --allow-insecure-unlock --authrpc.port 8552 --syncmode full console
+
+

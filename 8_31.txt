@@ -1,0 +1,145 @@
+jre로 설치되어 있거나 기존 java랑 충돌로 인해서 에러
+JAVA JDK를 설치해야함
+
+기존 자바가 환경변수에서 jre
+자바 환경변수를 jdk
+
+./gradlew installDist
+
+=> Build successful in ~~
+이런식으로 떠야지 완료된거임
+
+[자바 설치]
+https://www.oracle.com/java/technologies/downloads/
+
+[besu 22.1.2]
+https://github.com/hyperledger/besu/tree/release/22.1.2
+
+[자바 환경변수 window]
+https://velog.io/@jaydev/JAVA%EC%9E%90%EB%B0%94-%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98-%EC%84%A4%EC%A0%95
+https://marobiana.tistory.com/163
+
+./gradlew installDist 안되시는분들
+./gradlew clean installDist
+./gradlew clean 
+하신뒤에 
+./gradlew build 
+로 시도해보세요
+
+brew tap hyperledger/besu
+brew install hyperledger/besu/besu
+
+./gradlew clean
+./gradlew init
+./gradlew wrapper
+./gradlew downloadLicenses
+./gradlew nodeSetup
+./gradlew npmSetup
+./gradlew installDist
+===========================================================
+1. cache 
+./gradlew clean
+./gradlew init
+./gradlew wrapper
+./gradlew downloadLicenses
+./gradlew nodeSetup
+./gradlew npmSetup
+./gradlew installDist
+
+2. 한글 경로 <--- gradlew 
+한글 경로가 포함 안되어 있는곳으로 이동
+
+3. java 다시 지우고 
+java jdk 11버전을 다시 설치
+https://www.oracle.com/kr/java/technologies/javase/jdk11-archive-downloads.html
+==========================================================
+besu-release-22.1.2\build\install\besu\bin
+==========================================================
+
+node1 address: 0x269aea26EF44Fd5aF096510A048e3b4E465FB6A4
+pk: 74c3051c1bc21f22791b78b8eeaaad079d7091e0a4785f23d031c495ce5af7c2
+
+node2 address: 0xe5c3FE179C7DAeB09FE100824EF831668A6851cD
+pk: 7b3b972370cca00defce6aec1617027fa00ac8aed6dcfb80ce5ecadd7b4e71e3
+
+node3 address: 0x3dB75ad44F9b5aAC275AB66d73b573e6081872B9
+pk: 63c79d7ebdc34ec278efccc66e9fef7c6f8d5832cab148c5cf63cec7db0d22bc
+
+node4 address: 0xC88A95D4165D27B67fA88A8C5035a3Bb694Bcd13
+pk: 08dd0339b462f691fe4ac4124d712e61994de4117cca72eeb9143c2c4423320f
+
+===========================================================
+besu operator generate-blockchain-config --config-file=genesis.json --to=networkFiles --private-key-file-name=key
+==============================================================
+node1 command
+besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all"
+
+enode://ab47c6436d2ae2b0af775c03e0a6448e9944ceaea67bad3612bf2b9f5fc7eac30b43bc41f9d6865746dcd28c7afc478b64e37de78b8c9f9a959d81dc9913fb0d@127.0.0.1:30303
+
+node2 command
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=enode://ab47c6436d2ae2b0af775c03e0a6448e9944ceaea67bad3612bf2b9f5fc7eac30b43bc41f9d6865746dcd28c7afc478b64e37de78b8c9f9a959d81dc9913fb0d@127.0.0.1:30303 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
+
+besu 
+--data-path=data 
+--genesis-file=../genesis.json 
+--bootnodes=enode://ab47c6436d2ae2b0af775c03e0a6448e9944ceaea67bad3612bf2b9f5fc7eac30b43bc41f9d6865746dcd28c7afc478b64e37de78b8c9f9a959d81dc9913fb0d@127.0.0.1:30303 
+--p2p-port=30304 (주의)
+--rpc-http-enabled 
+--rpc-http-api=ETH,NET,IBFT 
+--host-allowlist="*" 
+--rpc-http-cors-origins="all" 
+--rpc-http-port=8546 (주의)
+
+
+node3 command
+besu --data-path=data --genesis-file=../genesis.json --bootnodes=enode://ab47c6436d2ae2b0af775c03e0a6448e9944ceaea67bad3612bf2b9f5fc7eac30b43bc41f9d6865746dcd28c7afc478b64e37de78b8c9f9a959d81dc9913fb0d@127.0.0.1:30303 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
+
+
+besu 
+--data-path=data 
+--genesis-file=../genesis.json --bootnodes=enode://ab47c6436d2ae2b0af775c03e0a6448e9944ceaea67bad3612bf2b9f5fc7eac30b43bc41f9d6865746dcd28c7afc478b64e37de78b8c9f9a959d81dc9913fb0d@127.0.0.1:30303 
+--p2p-port=30305 
+--rpc-http-enabled 
+--rpc-http-api=ETH,NET,IBFT 
+--host-allowlist="*" 
+--rpc-http-cors-origins="all" 
+--rpc-http-port=8547
+
+
+node4 command
+besu 
+--data-path=data 
+--genesis-file=../genesis.json 
+--bootnodes=enode://ab47c6436d2ae2b0af775c03e0a6448e9944ceaea67bad3612bf2b9f5fc7eac30b43bc41f9d6865746dcd28c7afc478b64e37de78b8c9f9a959d81dc9913fb0d@127.0.0.1:30303 
+--p2p-port=30306 
+--rpc-http-enabled 
+--rpc-http-api=ETH,NET,IBFT
+--host-allowlist="*" 
+--rpc-http-cors-origins="all" 
+--rpc-http-port=8548
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
