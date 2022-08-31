@@ -1,0 +1,36 @@
+{
+  "config" : {
+    "chainId" : 831,
+    "berlinBlock" : 0,
+    "ibft2" : {
+      "blockperiodseconds" : 2,
+      "epochlength" : 30000,
+      "requesttimeoutseconds" : 4
+    }
+  },
+  "nonce" : "0x0",
+  "timestamp" : "0x58ee40ba",
+  "gasLimit" : "0x47b760",
+  "difficulty" : "0x1",
+  "mixHash" : "0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365",
+  "coinbase" : "0x0000000000000000000000000000000000000000",
+  "alloc" : {
+    "269aea26EF44Fd5aF096510A048e3b4E465FB6A4" : {
+      "privateKey" : "74c3051c1bc21f22791b78b8eeaaad079d7091e0a4785f23d031c495ce5af7c2",
+      "balance" : "0xad78ebc5ac6200000"
+    },
+    "e5c3FE179C7DAeB09FE100824EF831668A6851cD" : {
+      "privateKey" : "7b3b972370cca00defce6aec1617027fa00ac8aed6dcfb80ce5ecadd7b4e71e3",
+      "balance" : "90000000000000000000000"
+    },
+    "3dB75ad44F9b5aAC275AB66d73b573e6081872B9" : {
+      "privateKey" : "63c79d7ebdc34ec278efccc66e9fef7c6f8d5832cab148c5cf63cec7db0d22bc",
+      "balance" : "70000000000000000000000"
+    },
+    "C88A95D4165D27B67fA88A8C5035a3Bb694Bcd13" : {
+      "privateKey" : "08dd0339b462f691fe4ac4124d712e61994de4117cca72eeb9143c2c4423320f",
+      "balance" : "80000000000000000000000"
+    }
+  },
+  "extraData" : "0xf87ea00000000000000000000000000000000000000000000000000000000000000000f85494c7c04e9727b4be2c6e2153cd31c95581feff95539455535054cdb1d9e439d5440f9b8193a50810be4f94088b909704799450b08ce545042dd5883ccf67d694c9fdc7b973bb629caf35de121c3bf55b2ce3a3c2808400000000c0"
+}
